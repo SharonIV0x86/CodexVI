@@ -1,2 +1,2 @@
 # CodexIV
-A simple and lightweight version control system in Java.
+A simple, efficient and fast version control system in Java.
