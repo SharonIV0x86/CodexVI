@@ -1,4 +1,4 @@
-package CodexIV;
+package CodexVI;
 
 import java.io.*;
 import java.nio.file.*;
@@ -19,7 +19,7 @@ public class CodexAdd {
 
     public  void addFile(String filePath) {
         
-        File index = new File(".codexiv/index");
+        File index = new File(".codexvi/index");
         if (!index.exists()) {
             System.out.println("Repository not initialized. Run `myvcs init` first.");
             return;

@@ -1,4 +1,4 @@
-package CodexIV;
+package CodexVI;
 
 import java.io.File;
 import java.io.IOException;
@@ -6,9 +6,9 @@ import java.io.IOException;
 public class CodexInit {
     public void initRepo() {
         File vcsDir = new File(".myvcs");
-        File indexFile = new File(".codexiv/index");
-        File commitsDir = new File(".codexiv/commits");
-        File branchesFile = new File(".codexiv/branches");
+        File indexFile = new File(".codexvi/index");
+        File commitsDir = new File(".codexvi/commits");
+        File branchesFile = new File(".codexvi/branches");
         if (vcsDir.exists()) {
             System.out.println("Repository already initialized.");
             return;

@@ -1,11 +1,11 @@
-package CodexIV;
+package CodexVI;
 
-public class CodexIV {
+public class CodexVI {
     CodexAdd codexAdd;
     CodexInit codexInit;
     CodexCommit codexCommit;
 
-    public CodexIV() {
+    public CodexVI() {
         codexInit = new CodexInit();
         codexAdd = new CodexAdd();
         codexCommit = new CodexCommit();
@@ -13,11 +13,11 @@ public class CodexIV {
 
     public static void main(String[] args) {
         if (args.length == 0) {
-            System.out.println("Usage: java CodexIV <command> [arguments]");
+            System.out.println("Usage: java CodexVI <command> [arguments]");
             return;
         }
 
-        CodexIV codex = new CodexIV();
+        CodexVI codex = new CodexVI();
         
         switch (args[0].toLowerCase()) {
             case "init":
@@ -25,7 +25,7 @@ public class CodexIV {
                 break;
             case "add":
                 if (args.length < 2) {
-                    System.out.println("Usage: java CodexIV add <file-path>");
+                    System.out.println("Usage: java CodexVI add <file-path>");
                     return;
                 }
                 codex.codexAdd.addFile(args[1]);

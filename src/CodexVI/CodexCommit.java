@@ -1,4 +1,4 @@
-package CodexIV;
+package CodexVI;
 
 import java.io.*;
 import java.nio.file.*;
@@ -7,7 +7,7 @@ import java.util.Date;
 
 public class CodexCommit {
     public void commit() {
-        File index = new File(".codexiv/index");
+        File index = new File(".codexvi/index");
         if (!index.exists() || index.length() == 0) {
             System.out.println("Nothing to commit. Add files first.");
             return;
@@ -15,7 +15,7 @@ public class CodexCommit {
 
         try {
             String timestamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
-            File commitDir = new File(".codexiv/commits/commit_" + timestamp);
+            File commitDir = new File(".codexvi/commits/commit_" + timestamp);
             commitDir.mkdir();
 
             BufferedReader reader = new BufferedReader(new FileReader(index));
@@ -33,7 +33,7 @@ public class CodexCommit {
 
             new PrintWriter(index).close(); 
 
-            File log = new File(".codexiv/log.txt");
+            File log = new File(".codexvi/log.txt");
             FileWriter logWriter = new FileWriter(log, true);
             logWriter.write("Commit: " + timestamp + "\n");
             logWriter.close();
@@ -44,7 +44,7 @@ public class CodexCommit {
         }
     }
     public void showLog() {
-        File log = new File(".codexiv/log.txt");
+        File log = new File(".codexvi/log.txt");
         if (!log.exists()) {
             System.out.println("No commits found.");
             return;
