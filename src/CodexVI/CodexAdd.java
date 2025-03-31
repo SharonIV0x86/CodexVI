@@ -17,8 +17,7 @@ public class CodexAdd {
         return hexString.toString();
     }
 
-    public  void addFile(String filePath) {
-        
+    public void addFile(String filePath) {
         File index = new File(".codexvi/index");
         if (!index.exists()) {
             System.out.println("Repository not initialized. Run `myvcs init` first.");

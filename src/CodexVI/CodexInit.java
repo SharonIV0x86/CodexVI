@@ -5,7 +5,7 @@ import java.io.IOException;
 
 public class CodexInit {
     public void initRepo() {
-        File vcsDir = new File(".myvcs");
+        File vcsDir = new File(".codexvi");
         File indexFile = new File(".codexvi/index");
         File commitsDir = new File(".codexvi/commits");
         File branchesFile = new File(".codexvi/branches");
