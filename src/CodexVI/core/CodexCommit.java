@@ -1,4 +1,4 @@
-package CodexVI;
+package CodexVI.core;
 
 import java.io.*;
 import java.nio.file.*;
@@ -31,33 +31,11 @@ public class CodexCommit {
             }
             reader.close();
 
-            new PrintWriter(index).close(); 
-
-            File log = new File(".codexvi/log.txt");
-            FileWriter logWriter = new FileWriter(log, true);
-            logWriter.write("Commit: " + timestamp + "\n");
-            logWriter.close();
+            new PrintWriter(index).close();
 
             System.out.println("Commit saved as " + commitDir.getName());
         } catch (Exception e) {
             System.out.println("Error committing: " + e.getMessage());
         }
     }
-    public void showLog() {
-        File log = new File(".codexvi/log.txt");
-        if (!log.exists()) {
-            System.out.println("No commits found.");
-            return;
-        }
-    
-        try (BufferedReader reader = new BufferedReader(new FileReader(log))) {
-            String line;
-            while ((line = reader.readLine()) != null) {
-                System.out.println(line);
-            }
-        } catch (IOException e) {
-            System.out.println("Error reading log: " + e.getMessage());
-        }
-    }
-    
 }

@@ -1,15 +1,15 @@
-package CodexVI;
+package CodexVI.core;
 
 import java.io.*;
 import java.nio.file.*;
 import java.security.*;
 
 public class CodexAdd {
-    public  String computeSHA1(String filePath) throws Exception {
+    public String computeSHA1(String filePath) throws Exception {
         MessageDigest digest = MessageDigest.getInstance("SHA-1");
         byte[] fileBytes = Files.readAllBytes(Paths.get(filePath));
         byte[] hashBytes = digest.digest(fileBytes);
-        
+
         StringBuilder hexString = new StringBuilder();
         for (byte b : hashBytes) {
             hexString.append(String.format("%02x", b));
@@ -20,7 +20,7 @@ public class CodexAdd {
     public void addFile(String filePath) {
         File index = new File(".codexvi/index");
         if (!index.exists()) {
-            System.out.println("Repository not initialized. Run `myvcs init` first.");
+            System.out.println("Repository not initialized. Run `java CodexVI init` first.");
             return;
         }
 
@@ -34,5 +34,4 @@ public class CodexAdd {
             System.out.println("Error adding file: " + e.getMessage());
         }
     }
-
 }

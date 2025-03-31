@@ -1,40 +1,36 @@
 package CodexVI;
 
+import CodexVI.commands.CodexInitCommand;
+import CodexVI.commands.CodexAddCommand;
+import CodexVI.commands.CodexCommitCommand;
+
+import java.util.HashMap;
+import java.util.Map;
+
 public class CodexVI {
-    CodexAdd codexAdd;
-    CodexInit codexInit;
-    CodexCommit codexCommit;
+    private final Map<String, CodexCommander> commands = new HashMap<>();
 
     public CodexVI() {
-        codexInit = new CodexInit();
-        codexAdd = new CodexAdd();
-        codexCommit = new CodexCommit();
+        commands.put("init", new CodexInitCommand());
+        commands.put("add", new CodexAddCommand());
+        commands.put("commit", new CodexCommitCommand());
     }
 
-    public static void main(String[] args) {
+    public void executeCommand(String[] args) {
         if (args.length == 0) {
             System.out.println("Usage: java CodexVI <command> [arguments]");
             return;
         }
 
-        CodexVI codex = new CodexVI();
-        
-        switch (args[0].toLowerCase()) {
-            case "init":
-                codex.codexInit.initRepo();
-                break;
-            case "add":
-                if (args.length < 2) {
-                    System.out.println("Usage: java CodexVI add <file-path>");
-                    return;
-                }
-                codex.codexAdd.addFile(args[1]);
-                break;
-            case "commit":
-                codex.codexCommit.commit();
-                break;
-            default:
-                System.out.println("Unknown command: " + args[0]);
+        CodexCommander command = commands.get(args[0].toLowerCase());
+        if (command != null) {
+            command.execute(args);
+        } else {
+            System.out.println("Unknown command: " + args[0]);
         }
+    }
+
+    public static void main(String[] args) {
+        new CodexVI().executeCommand(args);
     }
 }

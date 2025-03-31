@@ -1,4 +1,4 @@
-package CodexVI;
+package CodexVI.core;
 
 public class CodexBranch {
     
