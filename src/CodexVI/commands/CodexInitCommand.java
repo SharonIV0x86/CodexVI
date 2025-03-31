@@ -11,8 +11,8 @@ public class CodexInitCommand implements CodexCommander {
         String branchName = "main";  // Default branch
 
         if (args.length > 1) {
-            if (args[1].contains(".")) {
-                System.out.println("Branch names cannot contain (.)");
+            if (args[1].contains(".") || args[1].contains(",")) {
+                System.out.println("Branch names cannot contain (,) or (.)");
                 return;
             }
             branchName = args[1];

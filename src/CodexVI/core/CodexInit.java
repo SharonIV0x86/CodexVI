@@ -24,6 +24,7 @@ public class CodexInit {
                     branchWriter.write(branchName + "\n");
                 }
                 System.out.println("Initialized an empty repository in " + vcsDir.getAbsolutePath());
+                System.err.println("Initial branch name: " + branchName);
             } catch (IOException e) {
                 System.out.println("Error initializing repository: " + e.getMessage());
             }
